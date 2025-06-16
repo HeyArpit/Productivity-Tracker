@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productivity Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app-container">
+    <h1>Productivity Tracker</h1>
+
+    <section class="todo-section">
+      <h2>To-Do List</h2>
+      <input type="text" id="todo-input" placeholder="Enter a task..." />
+      <button id="add-btn">Add Task</button>
+      <ul id="todo-list"></ul>
+    </section>
+
+    <section class="timer-section">
+      <h2>Pomodoro Timer</h2>
+      <div class="inside-timer-section">
+        <div id="timer">25:00</div>
+        <div class="timer-btn">
+          <button id="start-btn">Start</button>
+          <button id="reset-btn">Reset</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="selfScript.js"></script>
+</body>
+
+</html>

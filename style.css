@@ -1,0 +1,117 @@
+/* For WebKit browsers */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 10px;
+}
+
+body {
+  background-color: #1c1c1c;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    color: antiquewhite;
+}
+
+.app-container {
+    height: 100vh;
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    background: #090404;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+
+input[type="text"] {
+    color: #090404;
+    width: 60%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    padding: 15px 35px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    margin: 0 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+li {
+    color: #090404;
+    list-style: none;
+    padding: 12px;
+    background: white;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#dlt-btn,
+#cmpltd-btn {
+    padding: 10px 10px;
+
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.timer-section {
+  width: 100%;
+  margin-top: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.inside-timer-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
