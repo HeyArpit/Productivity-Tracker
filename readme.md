@@ -6,13 +6,21 @@ Built using **Vanilla JavaScript**, **HTML**, and **CSS** — with a clean, resp
 
 ---
 
-## 🚀 Features
+## 🔥 Features
 
-- ✅ Add, complete, and delete tasks
-- ✅ Tasks saved in localStorage
-- ✅ Clean and responsive UI
-- ✅ Custom scrollbar and styling
-- 🔄 Pomodoro Timer (⏳ In progress)
+### ✅ To-Do List
+- Add, complete, and delete tasks
+- Visual feedback for completed tasks (strikethrough and faded)
+- Tasks persist using `localStorage`
+- Filter tasks by:
+  - ✅ All
+  - ✔️ Completed
+  - ⏳ Pending
+
+### ⏳ Pomodoro Timer
+- 25-minute countdown timer
+- Start and Reset buttons
+- Button disable/enable logic for clean interaction
 
 ---
 
