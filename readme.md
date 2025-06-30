@@ -16,6 +16,8 @@ Built using **Vanilla JavaScript**, **HTML**, and **CSS** — with a clean, resp
   - ✅ All
   - ✔️ Completed
   - ⏳ Pending
+  - Edit existing tasks directly
+  - Prevent adding **duplicate tasks**
 
 ### ⏳ Pomodoro Timer
 - 25-minute countdown timer

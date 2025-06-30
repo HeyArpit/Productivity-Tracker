@@ -19,6 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById("start-btn")
     const resetBtn = document.getElementById("reset-btn")
 
+
+    //Edit Task features0
+    let isEditing = false;
+    let currentEditId = null;
+
     // Initial Pomodoro time
     let minutes = 25
     let seconds = 0
@@ -36,6 +41,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const inputValue = todoInput.value.trim();
         if (inputValue === "") return;
+
+        // Check if task with same name already exists (case-insensitive)
+        const duplicateTask = taskArray.find(task =>
+            task.taskName.toLowerCase() === inputValue.toLowerCase()
+        );
+
+        // If editing, allow same name if it's the same task being edited
+        if (duplicateTask && (!isEditing || duplicateTask.id !== currentEditId)) {
+            alert("⚠️ Task already exists!");
+            return;
+        }
+
+        if (isEditing) {
+            const taskToUpdate = taskArray.find((task) => task.id === currentEditId)
+            taskToUpdate.taskName = inputValue
+
+            saveTask(taskArray)
+            refreshTask();
+
+            isEditing = false;
+            currentEditId = null;
+            addBtn.textContent = "Add"
+            todoInput.value = ""
+
+            return;
+
+        }
 
         const taskObject = {
             id: Date.now(),
@@ -117,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const btnDiv = document.createElement("div")
         const dltBtn = document.createElement("button");
         const cmpltBtn = document.createElement("button");
+        const editIcon = document.createElement("span")
 
         lists.classList.add("list-items");
         dltBtn.classList.add("dlt-btn");
@@ -125,12 +158,14 @@ document.addEventListener("DOMContentLoaded", () => {
         taskDiv.textContent = taskObject.taskName;
         cmpltBtn.textContent = "Completed";
         dltBtn.textContent = "Delete";
+        editIcon.innerHTML = `<i class="fa-solid fa-file-pen"></i>`
 
         todoList.appendChild(lists);
         lists.appendChild(taskDiv);
         lists.appendChild(btnDiv);
         btnDiv.appendChild(cmpltBtn)
         btnDiv.appendChild(dltBtn)
+        btnDiv.appendChild(editIcon)
 
 
 
@@ -150,6 +185,14 @@ document.addEventListener("DOMContentLoaded", () => {
             completedTask(taskObject, lists);
             saveTask(taskArray)
         })
+
+        editIcon.addEventListener("click", () => {
+            todoInput.value = taskObject.taskName;
+            isEditing = true;
+            currentEditId = taskObject.id;
+            addBtn.textContent = "Update"
+
+        })
     }
 
 
@@ -165,6 +208,14 @@ document.addEventListener("DOMContentLoaded", () => {
         taskArray = taskArray.filter((t) => t.id !== taskObject.id)
         lists.remove();
         saveTask(taskArray)
+    }
+
+    //Refresh task In localStorage
+    function refreshTask() {
+        todoList.innerHTML = ""
+        taskArray.forEach(task => {
+            addTaskToList(task);
+        })
     }
 
 
